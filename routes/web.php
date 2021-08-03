@@ -18,5 +18,5 @@ Route::get('/', function () {
 });
 
 Route::get('home', function () {
-    return view("layouts.app");
+    return \Inertia\Inertia::render("Index");
 });
