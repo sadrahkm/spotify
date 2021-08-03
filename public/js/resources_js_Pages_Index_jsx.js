@@ -96,7 +96,7 @@ var Index = function Index() {
   }, "SEE ALL")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "gap-x-5 grid grid-cols-5"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
-    className: "bg-darkgray-600 bg-opacity-20 border border-darkgray-600 flex justify-center pb-8 pt-4 rounded-md shadow-md"
+    className: "bg-darkgray-600 bg-opacity-20 hover:bg-opacity-70 border border-darkgray-600 flex justify-center pb-8 pt-4 rounded-md shadow-md"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
     className: "flex flex-col items-center px-4 text-white"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {

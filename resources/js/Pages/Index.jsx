@@ -82,7 +82,7 @@ const Index = () => {
                                         <p className="text-sm font-semibold opacity-70">SEE ALL</p>
                                     </div>
                                     <div className="gap-x-5 grid grid-cols-5">
-                                        <div className="bg-darkgray-600 bg-opacity-20 border border-darkgray-600 flex justify-center pb-8 pt-4 rounded-md shadow-md">
+                                        <div className="bg-darkgray-600 bg-opacity-20 hover:bg-opacity-70 border border-darkgray-600 flex justify-center pb-8 pt-4 rounded-md shadow-md">
                                             <div className="flex flex-col items-center px-4 text-white">
                                                 <img
                                                     className="mb-4 rounded-lg w-full"
