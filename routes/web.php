@@ -26,6 +26,14 @@ Route::get('/', function () {
 
 Route::get('/home', function () {
     return Inertia::render('Index');
+})->name('home');
+
+Route::get('album/{album}', function () {
+    return Inertia::render("Album/Index");
+});
+
+Route::get('player', function () {
+    return Inertia::render("AudioPlayer");
 });
 
 Route::get('/dashboard', function () {
