@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PlaylistController;
+use App\Http\Controllers\UsersController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -15,17 +19,29 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', function () {
-    return Inertia::render('Welcome', [
-        'canLogin' => Route::has('login'),
-        'canRegister' => Route::has('register'),
-        'laravelVersion' => Application::VERSION,
-        'phpVersion' => PHP_VERSION,
-    ]);
-});
+//Route::get('/', function () {
+//    return Inertia::render('Welcome', [
+//        'canLogin' => Route::has('login'),
+//        'canRegister' => Route::has('register'),
+//        'laravelVersion' => Application::VERSION,
+//        'phpVersion' => PHP_VERSION,
+//    ]);
+//});
 
-Route::get('/home', function () {
-    return Inertia::render('Index');
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+//Route::get('/home', function () {
+//    return Inertia::render('Index');
+//});
+
+Route::get('/album/{album}', [AlbumController::class, 'show'])->name('album.show');
+
+Route::get('/user/{username}', [UsersController::class, 'show'])->name('user.show');
+
+Route::get('/playlist/{playlist}', [PlaylistController::class, 'show'])->name('playlist.show');
+
+Route::get('player', function () {
+    return Inertia::render("AudioPlayer");
 });
 
 Route::get('/dashboard', function () {
