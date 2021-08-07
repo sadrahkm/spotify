@@ -3058,7 +3058,9 @@ var AlbumBox = function AlbumBox(_ref) {
       userName = _ref.userName,
       src = _ref.src;
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_1__.Link, {
-    href: "/album/".concat(id),
+    href: route("album.show", {
+      album: id
+    }),
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("div", {
       className: "bg-darkgray-600 bg-opacity-20 border border-darkgray-600 h-64 hover:bg-opacity-100 pt-4 rounded-md shadow-md transition-all",
       children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
@@ -3070,7 +3072,6 @@ var AlbumBox = function AlbumBox(_ref) {
             alt: title
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-          className: "w-36",
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("h4", {
             className: "font-bold truncate",
             children: title
@@ -3802,7 +3803,8 @@ var PlaylistItem = function PlaylistItem(_ref) {
   var title = _ref.title,
       plays = _ref.plays,
       time = _ref.time,
-      path = _ref.path;
+      path = _ref.path,
+      index = _ref.index;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
       _useState2 = _slicedToArray(_useState, 2),
@@ -3831,30 +3833,23 @@ var PlaylistItem = function PlaylistItem(_ref) {
                   className: "fas fa-play text-xs"
                 })
               })
-            }) : 1
+            }) : index
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-            className: "flex items-center",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("img", {
-              className: "w-12",
-              src: "/images/cover.jpg",
-              alt: ""
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
-              className: "flex flex-col ml-4",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h5", {
-                className: "text-white font-bold",
-                children: title
-              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
-                className: "text-xs",
-                children: "Coldplay"
-              })]
+            className: "flex flex-col flex-1 min-w-0",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("h5", {
+              className: "text-white font-semibold truncate",
+              children: title
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("p", {
+              className: "text-xs",
+              children: "Coldplay"
             })]
           })]
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "col-span-3 flex items-center",
+        className: "col-span-1 flex items-center justify-end",
         children: plays
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
-        className: "col-span-1 flex items-center",
+        className: "col-span-1 col-start-9 flex items-center justify-end pr-8",
         children: "4:11"
       })]
     })
@@ -4435,7 +4430,7 @@ var Show = function Show() {
                   alt: ""
                 })
               }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.Link, {
-                href: route('users.show', {
+                href: route('user.show', {
                   username: user.username
                 }),
                 children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
@@ -4453,9 +4448,9 @@ var Show = function Show() {
       className: "px-8",
       children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
         className: "mt-6 mb-12",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
           className: "flex justify-between",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
             className: "flex space-x-7 items-center",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
               className: "bg-primary-lightgreen px-4 py-3 rounded-full text-white",
@@ -4466,53 +4461,33 @@ var Show = function Show() {
               className: "flex space-x-7 text-2xl text-darkgray-100",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Button_Like__WEBPACK_IMPORTED_MODULE_5__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Button_Download__WEBPACK_IMPORTED_MODULE_4__.default, {})]
             })]
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-            className: "flex items-center",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-              className: "mr-6",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("form", {
-                action: "",
-                className: "bg-opacity-10 bg-white border-none rounded-md text-darkgray-100",
-                children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
-                  type: "submit",
-                  className: "pl-4 pr-2",
-                  children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
-                    className: "fas fa-search"
-                  })
-                }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("input", {
-                  className: "bg-transparent border-none h-9",
-                  type: "text",
-                  placeholder: "Search in playlist",
-                  name: "search"
-                })]
-              })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Dropdown_AlbumDropdown__WEBPACK_IMPORTED_MODULE_6__.default, {})]
-          })]
+          })
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
           children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
-            className: "border-b border-opacity-20 grid grid-cols-9 pb-2 text-darkgray-100 mb-3",
+            className: "border-b border-opacity-20 grid grid-cols-9 pb-2 text-darkgray-100 mb-3 uppercase",
             children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
               className: "col-span-5 pl-8",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
-                className: "mr-3",
+                className: "mr-5",
                 children: "#"
-              }), " TITLE"]
+              }), "title"]
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-              className: "col-span-3",
-              children: "ALBUM"
+              className: "col-span-1 flex items-center justify-end",
+              children: "plays"
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
-              className: "col-span-1",
+              className: "col-span-1 col-start-9 flex items-center justify-end pr-8",
               children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
                 className: "far fa-clock"
               })
             })]
-          }), musics.map(function (_ref) {
+          }), musics.map(function (_ref, index) {
             var title = _ref.title,
                 plays = _ref.plays,
                 path = _ref.path;
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_PlaylistItem__WEBPACK_IMPORTED_MODULE_2__.default, {
+              index: index + 1,
               title: title,
               plays: plays
             });
@@ -5249,11 +5224,12 @@ var Index = function Index() {
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)("div", {
           className: "gap-x-5 grid grid-cols-5",
           children: data.map(function (_ref) {
-            var title = _ref.title,
+            var id = _ref.id,
+                title = _ref.title,
                 username = _ref.username,
                 cover = _ref.cover;
             return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Components_AlbumBox__WEBPACK_IMPORTED_MODULE_3__.default, {
-              id: "2",
+              id: id,
               title: title,
               userName: username,
               src: cover
@@ -5268,6 +5244,173 @@ var Index = function Index() {
 Index.layout = function (page) {
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_5__.jsx)(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_2__.default, {
     children: page
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Index);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Playlist/Show.jsx":
+/*!**********************************************!*\
+  !*** ./resources/js/Pages/Playlist/Show.jsx ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var _Layouts_Layout__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @/Layouts/Layout */ "./resources/js/Layouts/Layout.jsx");
+/* harmony import */ var _Components_PlaylistItem__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @/Components/PlaylistItem */ "./resources/js/Components/PlaylistItem.jsx");
+/* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
+/* harmony import */ var _Components_Button_Download__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/Button/Download */ "./resources/js/Components/Button/Download.jsx");
+/* harmony import */ var _Components_Button_Like__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Components/Button/Like */ "./resources/js/Components/Button/Like.jsx");
+/* harmony import */ var _Components_Dropdown_AlbumDropdown__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Components/Dropdown/AlbumDropdown */ "./resources/js/Components/Dropdown/AlbumDropdown.jsx");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+
+
+
+
+
+var Show = function Show() {
+  var album = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.usePage)().props.album.data;
+  var user = album.user;
+  var musics = album.musics;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+    className: "h-0",
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+      className: "px-8 pt-16 pb-6 bg-gradient-to-b from-darkgray-300 to-darkgray-500",
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+        className: "flex text-white items-end",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+          className: "h-52 bg-gradient-to-b from-darkgray-300 mr-6 shadow-xl",
+          src: "/images/cover.jpg",
+          alt: ""
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+            className: "font-bold text-xs uppercase",
+            children: "album"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("h2", {
+            className: "font-extrabold text-6xl ml-0.5 my-3",
+            children: album.title
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+            className: "text-sm text-darkgray-100 space-y-1",
+            children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("p", {
+              className: "flex",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("img", {
+                  width: "20",
+                  height: "20",
+                  className: "rounded-full mr-2",
+                  src: user.profile_picture,
+                  alt: ""
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__.Link, {
+                href: route('user.show', {
+                  username: user.username
+                }),
+                children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+                  className: "font-bold text-white mr-1",
+                  children: user.name
+                })
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+                children: "| 2021 | 50 songs, 2 hr 45"
+              }), "min"]
+            })
+          })]
+        })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+      className: "px-8",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        className: "mt-6 mb-12",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+          className: "flex justify-between",
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+            className: "flex space-x-7 items-center",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("button", {
+              className: "bg-primary-lightgreen px-4 py-3 rounded-full text-white",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
+                className: "fas fa-play"
+              })
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+              className: "flex space-x-7 text-2xl text-darkgray-100",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Button_Like__WEBPACK_IMPORTED_MODULE_5__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_Button_Download__WEBPACK_IMPORTED_MODULE_4__.default, {})]
+            })]
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+            className: "border-b border-opacity-20 grid grid-cols-9 pb-2 text-darkgray-100 mb-3 uppercase",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsxs)("div", {
+              className: "col-span-5 pl-8",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("span", {
+                className: "mr-5",
+                children: "#"
+              }), "title"]
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+              className: "col-span-1 flex items-center justify-end",
+              children: "plays"
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("div", {
+              className: "col-span-1 col-start-9 flex items-center justify-end pr-8",
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)("i", {
+                className: "far fa-clock"
+              })
+            })]
+          }), musics.map(function (_ref, index) {
+            var title = _ref.title,
+                plays = _ref.plays,
+                path = _ref.path;
+            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Components_PlaylistItem__WEBPACK_IMPORTED_MODULE_2__.default, {
+              index: index + 1,
+              title: title,
+              plays: plays
+            });
+          })]
+        })
+      })]
+    })]
+  });
+};
+
+Show.layout = function (page) {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_7__.jsx)(_Layouts_Layout__WEBPACK_IMPORTED_MODULE_1__.default, {
+    children: page
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Show);
+
+/***/ }),
+
+/***/ "./resources/js/Pages/Profile/Index.jsx":
+/*!**********************************************!*\
+  !*** ./resources/js/Pages/Profile/Index.jsx ***!
+  \**********************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+var Index = function Index() {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+    children: "Hello Friend"
   });
 };
 
@@ -74978,6 +75121,10 @@ var map = {
 	"./Dashboard.js": "./resources/js/Pages/Dashboard.js",
 	"./Index": "./resources/js/Pages/Index.jsx",
 	"./Index.jsx": "./resources/js/Pages/Index.jsx",
+	"./Playlist/Show": "./resources/js/Pages/Playlist/Show.jsx",
+	"./Playlist/Show.jsx": "./resources/js/Pages/Playlist/Show.jsx",
+	"./Profile/Index": "./resources/js/Pages/Profile/Index.jsx",
+	"./Profile/Index.jsx": "./resources/js/Pages/Profile/Index.jsx",
 	"./Welcome": "./resources/js/Pages/Welcome.js",
 	"./Welcome.js": "./resources/js/Pages/Welcome.js"
 };

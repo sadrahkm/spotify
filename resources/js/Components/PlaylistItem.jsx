@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const PlaylistItem = ({ title, plays, time, path}) => {
+const PlaylistItem = ({title, plays, time, path, index}) => {
     const [showPlayButton, setShowPlayButton] = useState(false);
     return (
         <div
@@ -18,24 +18,18 @@ const PlaylistItem = ({ title, plays, time, path}) => {
                                 <div>
                                     <button><i className="fas fa-play text-xs"></i></button>
                                 </div>
-                            ) : 1}
+                            ) : index}
                         </span>
-                        <div className="flex items-center">
-                            <img
-                                className="w-12"
-                                src="/images/cover.jpg"
-                                alt=""/>
-                            <div className="flex flex-col ml-4">
-                                <h5 className="text-white font-bold">{title}</h5>
-                                <p className="text-xs">Coldplay</p>
-                            </div>
+                        <div className="flex flex-col flex-1 min-w-0">
+                            <h5 className="text-white font-semibold truncate">{title}</h5>
+                            <p className="text-xs">Coldplay</p>
                         </div>
                     </div>
                 </div>
-                <div className="col-span-3 flex items-center">
+                <div className="col-span-1 flex items-center justify-end">
                     {plays}
                 </div>
-                <div className="col-span-1 flex items-center">
+                <div className="col-span-1 col-start-9 flex items-center justify-end pr-8">
                     4:11
                 </div>
             </div>

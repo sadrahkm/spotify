@@ -28,9 +28,9 @@ const Index = () => {
                         <p className="text-sm font-semibold opacity-70">SEE ALL</p>
                     </div>
                     <div className="gap-x-5 grid grid-cols-5">
-                        {data.map(({title, username, cover}) => (
+                        {data.map(({id, title, username, cover}) => (
                             <AlbumBox
-                                id="2"
+                                id={id}
                                 title={title}
                                 userName={username}
                                 src={cover}/>

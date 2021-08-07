@@ -15,6 +15,7 @@ class AlbumCollection extends ResourceCollection
     {
         return $this->collection->map(function ($item) {
             return [
+                'id' => $item->id,
                 'title' => $item->title,
                 'username' => $item->user->name,
                 'cover' => $item->cover,

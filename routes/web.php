@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AlbumController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PlaylistController;
 use App\Http\Controllers\UsersController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -33,9 +34,11 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 //    return Inertia::render('Index');
 //});
 
-Route::get('/album/{album}', [AlbumController::class, 'show'])->name('albums.show');
+Route::get('/album/{album}', [AlbumController::class, 'show'])->name('album.show');
 
-Route::get('/user/{username}', [UsersController::class, 'show'])->name('users.show');
+Route::get('/user/{username}', [UsersController::class, 'show'])->name('user.show');
+
+Route::get('/playlist/{playlist}', [PlaylistController::class, 'show'])->name('playlist.show');
 
 Route::get('player', function () {
     return Inertia::render("AudioPlayer");
