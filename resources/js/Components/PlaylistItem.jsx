@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const PlaylistItem = () => {
+const PlaylistItem = ({ title, plays, time, path}) => {
     const [showPlayButton, setShowPlayButton] = useState(false);
     return (
         <div
@@ -26,15 +26,14 @@ const PlaylistItem = () => {
                                 src="/images/cover.jpg"
                                 alt=""/>
                             <div className="flex flex-col ml-4">
-                                <h5 className="text-white font-bold">Viva La Vida - Live in Buenos
-                                    Aires</h5>
+                                <h5 className="text-white font-bold">{title}</h5>
                                 <p className="text-xs">Coldplay</p>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div className="col-span-3 flex items-center">
-                    Live in Buenos Aires
+                    {plays}
                 </div>
                 <div className="col-span-1 flex items-center">
                     4:11

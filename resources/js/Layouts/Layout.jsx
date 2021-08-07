@@ -1,5 +1,5 @@
 import React from 'react';
-import Footer from "@/Shared/Footer";
+import Footer from "@/Module/Footer";
 import {Link} from "@inertiajs/inertia-react";
 
 const Layout = ({children}) => {

@@ -1,10 +1,12 @@
 import React from 'react';
-import Footer from '@/Shared/Footer';
+import Footer from '@/Module/Footer';
 import Layout from "@/Layouts/Layout";
 import AlbumBox from "@/Components/AlbumBox";
+import {usePage} from "@inertiajs/inertia-react";
 
 const Index = () => {
-
+    const {albums} = usePage().props;
+    const {data} = albums;
     return (
         <div className="h-0">
             <div className="px-8 pt-16 ">
@@ -26,9 +28,13 @@ const Index = () => {
                         <p className="text-sm font-semibold opacity-70">SEE ALL</p>
                     </div>
                     <div className="gap-x-5 grid grid-cols-5">
-                        <AlbumBox/>
-                        <AlbumBox/>
-                        <AlbumBox/>
+                        {data.map(({title, username, cover}) => (
+                            <AlbumBox
+                                id="2"
+                                title={title}
+                                userName={username}
+                                src={cover}/>
+                        ))}
                     </div>
                 </div>
             </div>
