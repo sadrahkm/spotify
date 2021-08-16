@@ -1,10 +1,11 @@
 import React from 'react';
 import Layout from "@/Layouts/Layout";
-import PlaylistItem from "@/Components/PlaylistItem";
+import AlbumRecord from "@/Components/Record/AlbumRecord";
 import {Link, usePage} from "@inertiajs/inertia-react";
 import Download from "@/Components/Button/Download";
 import Like from "@/Components/Button/Like";
 import AlbumDropdown from "@/Components/Dropdown/AlbumDropdown";
+import GreenPlayButton from "@/Components/Button/GreenPlayButton";
 
 const Show = () => {
     const {album: {data: album},} = usePage().props;
@@ -48,9 +49,7 @@ const Show = () => {
                 <div className="mt-6 mb-12">
                     <div className="flex justify-between">
                         <div className="flex space-x-7 items-center">
-                            <button className="bg-primary-lightgreen px-4 py-3 rounded-full text-white">
-                                <i className="fas fa-play"></i>
-                            </button>
+                            <GreenPlayButton/>
                             <div className="flex space-x-7 text-2xl text-darkgray-100">
                                 <Like/>
                                 <Download/>
@@ -68,7 +67,7 @@ const Show = () => {
                                 <i className="far fa-clock"></i></div>
                         </div>
                         {musics.map(({title, plays, path}, index) => (
-                            <PlaylistItem
+                            <AlbumRecord
                                 index={index + 1}
                                 title={title}
                                 plays={plays}/>

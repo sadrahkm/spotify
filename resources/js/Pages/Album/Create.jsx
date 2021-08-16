@@ -1,12 +1,12 @@
 import React from 'react';
 
-const Index = () => {
+const Create = () => {
 
     return (
         <div>
-            Hello Friend
+            Create Album
         </div>
     );
 };
 
-export default Index;
+export default Create;

@@ -33,6 +33,8 @@
         "@inertiajs/inertia": "^0.10.1",
         "@inertiajs/inertia-react": "^0.7.1",
         "@inertiajs/progress": "^0.2.6",
+        "@material-ui/core": "^4.12.3",
+        "@material-ui/icons": "^4.11.2",
         "@tailwindcss/line-clamp": "^0.2.1",
         "lottie-web": "^5.7.12",
         "react": "^17.0.2",

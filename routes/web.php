@@ -28,21 +28,23 @@ use Inertia\Inertia;
 //    ]);
 //});
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
 
-//Route::get('/home', function () {
-//    return Inertia::render('Index');
-//});
+Route::get('/albums/create', [AlbumController::class, 'create'])->name('album.create');
+
+Route::post('/albums', [AlbumController::class, 'store'])->name('album.store');
 
 Route::get('/album/{album}', [AlbumController::class, 'show'])->name('album.show');
 
 Route::get('/user/{username}', [UsersController::class, 'show'])->name('user.show');
 
-Route::get('/playlist/{playlist}', [PlaylistController::class, 'show'])->name('playlist.show');
+Route::get('/artist/{artist}', [UsersController::class, 'artist'])->name('artist.show');
 
-Route::get('player', function () {
-    return Inertia::render("AudioPlayer");
-});
+//Route::get('/playlist/{playlist}', [PlaylistController::class, 'show'])->name('playlist.show');
+
+//Route::get('player', function () {
+//    return Inertia::render("AudioPlayer");
+//});
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

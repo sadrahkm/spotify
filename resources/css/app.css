@@ -138,4 +138,13 @@
         transform: scale(1.2);
         background: #007db5;
     }
+
+    @font-face {
+        font-family: circular;
+        src: url(/fonts/CircularSpotifyTxT-Light.ttf) format("ttf");
+        src: url(/fonts/CircularSpotifyTxT-Light.woff) format("woff");
+        src: url(/fonts/CircularSpotifyTxT-Light.woff2) format("woff2");
+        src: url(/fonts/CircularSpotifyTxT-Light.otf) format("otf");
+        src: url(/fonts/CircularSpotifyTxT-Light.eot) format("eot");
+    }
 }
