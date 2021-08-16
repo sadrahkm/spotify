@@ -17,7 +17,7 @@ class AlbumCollection extends ResourceCollection
             return [
                 'id' => $item->id,
                 'title' => $item->title,
-                'username' => $item->user->name,
+                'name' => $item->user->name,
                 'cover' => $item->cover,
                 'header_picture' => $item->header_picture
             ];

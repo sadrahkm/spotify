@@ -26,7 +26,8 @@ module.exports = {
                     500: "#898989",
                 },
                 darkgray: {
-                    100: "#a9a9a9", // Gray Text color
+                    100: "#a9a9a9", // م
+                    200: "#333333", // bg of inputs
                     300: "#3b3b3b", // Gradient dark color
                     400: "#282828", // bg for focused menu item
                     500: "#2b2b2b", // gradient light color

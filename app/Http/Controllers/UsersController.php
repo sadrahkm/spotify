@@ -9,6 +9,11 @@ class UsersController extends Controller
 {
     public function show()
     {
-        return Inertia::render('Profile/Index');
+        return Inertia::render('UserProfile/Index');
+    }
+
+    public function artist()
+    {
+        return Inertia::render('ArtistProfile/Index');
     }
 }

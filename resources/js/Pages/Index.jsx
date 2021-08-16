@@ -1,15 +1,16 @@
 import React from 'react';
 import Footer from '@/Module/Footer';
 import Layout from "@/Layouts/Layout";
-import AlbumBox from "@/Components/AlbumBox";
+import AlbumBox from "@/Components/Box/AlbumBox";
 import {usePage} from "@inertiajs/inertia-react";
+import AlbumBar from "@/Components/Bar/AlbumBar";
 
 const Index = () => {
     const {albums} = usePage().props;
     const {data} = albums;
     return (
         <div className="h-0">
-            <div className="px-8 pt-16 ">
+            <div className="px-8 pt-8 ">
                 <div>
                     <h2 className="text-white text-3xl mb-8 font-bold">Good Afternoon</h2>
                     <div className="font-bold gap-x-6 gap-y-4 grid grid-cols-3 text-white">
@@ -23,19 +24,19 @@ const Index = () => {
                     </div>
                 </div>
                 <div className="mt-10">
-                    <div className="flex justify-between text-white mb-4 items-center">
-                        <h2 className="text-xl font-bold">Your Top Shows</h2>
-                        <p className="text-sm font-semibold opacity-70">SEE ALL</p>
-                    </div>
-                    <div className="gap-x-5 grid grid-cols-5">
-                        {data.map(({id, title, username, cover}) => (
-                            <AlbumBox
-                                id={id}
-                                title={title}
-                                userName={username}
-                                src={cover}/>
-                        ))}
-                    </div>
+                    <AlbumBar
+                        heading="Your Top Shows"
+                        data={data}/>
+                </div>
+                <div className="mt-10">
+                    <AlbumBar
+                        heading="Your Top Shows"
+                        data={data}/>
+                </div>
+                <div className="mt-10">
+                    <AlbumBar
+                        heading="Your Top Shows"
+                        data={data}/>
                 </div>
             </div>
         </div>
