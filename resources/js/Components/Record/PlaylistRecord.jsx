@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import Like from "@/Components/Button/Like";
 
-const AlbumRecord = ({title, plays, time, path, index, hasCover}) => {
+const PlaylistRecord = ({title, plays, time, path, index, hasCover}) => {
     const [showButtons, setShowButtons] = useState(false);
     return (
         <div
@@ -9,11 +9,11 @@ const AlbumRecord = ({title, plays, time, path, index, hasCover}) => {
             onMouseEnter={() => setShowButtons(true)}
             onMouseLeave={() => setShowButtons(false)}
         >
-            <div className="grid grid-cols-9 text-darkgray-100">
-                <div className="col-span-5 pl-8">
+            <div className="grid grid-cols-9 gap-4 text-darkgray-100">
+                <div className="col-span-4 pl-8">
                     <div className="flex items-center">
                         <span
-                            className="mr-5"
+                            className="w-8"
                         >
                             {showButtons ? (
                                 <div>
@@ -35,8 +35,11 @@ const AlbumRecord = ({title, plays, time, path, index, hasCover}) => {
                         </div>
                     </div>
                 </div>
-                <div className="col-span-1 flex items-center justify-end">
-                    {plays}
+                <div className="col-span-2 flex items-center text-sm">
+                    I Am ... Sasha - Plantium Edition
+                </div>
+                <div className="col-span-2 flex items-center text-sm">
+                    May 29, 2021
                 </div>
                 <div className="col-span-1 col-start-9 pr-8 flex items-center justify-end space-x-4">
                     {showButtons ? (
@@ -51,4 +54,4 @@ const AlbumRecord = ({title, plays, time, path, index, hasCover}) => {
     );
 };
 
-export default AlbumRecord;
+export default PlaylistRecord;
