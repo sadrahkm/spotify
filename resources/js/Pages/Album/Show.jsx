@@ -4,8 +4,8 @@ import AlbumRecord from "@/Components/Record/AlbumRecord";
 import {Link, usePage} from "@inertiajs/inertia-react";
 import Download from "@/Components/Button/Download";
 import Like from "@/Components/Button/Like";
-import AlbumDropdown from "@/Components/Dropdown/AlbumDropdown";
 import GreenPlayButton from "@/Components/Button/GreenPlayButton";
+import RecordHeader from "@/Components/Record/RecordHeader";
 
 const Show = () => {
     const {album: {data: album},} = usePage().props;
@@ -49,7 +49,7 @@ const Show = () => {
                 <div className="mt-6 mb-6">
                     <div className="flex justify-between">
                         <div className="flex space-x-7 items-center">
-                            <GreenPlayButton />
+                            <GreenPlayButton/>
                             <div className="flex space-x-7 text-2xl text-darkgray-100">
                                 <Like/>
                                 <Download/>
@@ -60,12 +60,7 @@ const Show = () => {
                 {/* Table */}
                 <div>
                     <div>
-                        <div className="border-b border-opacity-20 grid grid-cols-9 pb-2 text-darkgray-100 mb-3 uppercase">
-                            <div className="col-span-5 pl-8"><span className="mr-5">#</span>title</div>
-                            <div className="col-span-1 flex items-center justify-end">plays</div>
-                            <div className="col-span-1 col-start-9 flex items-center justify-end pr-8">
-                                <i className="far fa-clock"></i></div>
-                        </div>
+                        <RecordHeader/>
                         {musics.map(({title, plays, path}, index) => (
                             <AlbumRecord
                                 index={index + 1}

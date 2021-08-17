@@ -10774,7 +10774,7 @@ var AlbumRecord = function AlbumRecord(_ref) {
               })
             }) : index
           }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsxs)("div", {
-            className: "flex space-x-3",
+            className: "flex min-w-0 flex-1 space-x-3",
             children: [hasCover ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_2__.jsx)("img", {
               className: "w-10 rounded-sm",
               src: "/images/cover.jpg",
@@ -10805,6 +10805,55 @@ var AlbumRecord = function AlbumRecord(_ref) {
 };
 
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (AlbumRecord);
+
+/***/ }),
+
+/***/ "./resources/js/Components/Record/RecordHeader.jsx":
+/*!*********************************************************!*\
+  !*** ./resources/js/Components/Record/RecordHeader.jsx ***!
+  \*********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+
+
+
+
+
+var RecordHeader = function RecordHeader(_ref) {
+  var isPlaylist = _ref.isPlaylist;
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.Fragment, {
+    children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+      className: "grid grid-cols-9 gap-x-4 text-sm border-b border-opacity-20 pb-2 text-darkgray-100 mb-3 uppercase",
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsxs)("div", {
+        className: "".concat(isPlaylist ? "col-span-4" : "col-span-5", " pl-8"),
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("span", {
+          className: "mr-5",
+          children: "#"
+        }), "title"]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "".concat(isPlaylist ? "col-span-2" : "col-span-1 justify-end", " flex items-center"),
+        children: isPlaylist ? "Album" : "Plays"
+      }), isPlaylist ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "col-span-2 flex items-center",
+        children: " Date Added"
+      }) : "", /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
+        className: "".concat(isPlaylist ? "" : "col-start-9", " col-span-1 flex items-center justify-end pr-8"),
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("i", {
+          className: "far fa-clock"
+        })
+      })]
+    })
+  });
+};
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RecordHeader);
 
 /***/ }),
 
@@ -11412,8 +11461,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @inertiajs/inertia-react */ "./node_modules/@inertiajs/inertia-react/dist/index.js");
 /* harmony import */ var _Components_Button_Download__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @/Components/Button/Download */ "./resources/js/Components/Button/Download.jsx");
 /* harmony import */ var _Components_Button_Like__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @/Components/Button/Like */ "./resources/js/Components/Button/Like.jsx");
-/* harmony import */ var _Components_Dropdown_AlbumDropdown__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Components/Dropdown/AlbumDropdown */ "./resources/js/Components/Dropdown/AlbumDropdown.jsx");
-/* harmony import */ var _Components_Button_GreenPlayButton__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/Components/Button/GreenPlayButton */ "./resources/js/Components/Button/GreenPlayButton.jsx");
+/* harmony import */ var _Components_Button_GreenPlayButton__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! @/Components/Button/GreenPlayButton */ "./resources/js/Components/Button/GreenPlayButton.jsx");
+/* harmony import */ var _Components_Record_RecordHeader__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! @/Components/Record/RecordHeader */ "./resources/js/Components/Record/RecordHeader.jsx");
 /* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 
 
@@ -11482,7 +11531,7 @@ var Show = function Show() {
           className: "flex justify-between",
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
             className: "flex space-x-7 items-center",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Button_GreenPlayButton__WEBPACK_IMPORTED_MODULE_7__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Button_GreenPlayButton__WEBPACK_IMPORTED_MODULE_6__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
               className: "flex space-x-7 text-2xl text-darkgray-100",
               children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Button_Like__WEBPACK_IMPORTED_MODULE_5__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Button_Download__WEBPACK_IMPORTED_MODULE_4__.default, {})]
             })]
@@ -11490,24 +11539,7 @@ var Show = function Show() {
         })
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
         children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-            className: "border-b border-opacity-20 grid grid-cols-9 pb-2 text-darkgray-100 mb-3 uppercase",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "col-span-5 pl-8",
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                className: "mr-5",
-                children: "#"
-              }), "title"]
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-              className: "col-span-1 flex items-center justify-end",
-              children: "plays"
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-              className: "col-span-1 col-start-9 flex items-center justify-end pr-8",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("i", {
-                className: "far fa-clock"
-              })
-            })]
-          }), musics.map(function (_ref, index) {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_Components_Record_RecordHeader__WEBPACK_IMPORTED_MODULE_7__.default, {}), musics.map(function (_ref, index) {
             var title = _ref.title,
                 plays = _ref.plays,
                 path = _ref.path;
