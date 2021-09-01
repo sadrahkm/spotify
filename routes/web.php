@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PlaylistController;
 use App\Http\Controllers\UsersController;
@@ -18,6 +19,8 @@ use Inertia\Inertia;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+$domain = config('app.domain');
 
 //Route::get('/', function () {
 //    return Inertia::render('Welcome', [

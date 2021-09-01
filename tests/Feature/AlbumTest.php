@@ -46,9 +46,6 @@ test("a user can view an single album", function () {
         ->assertSee($album->title);
 });
 
-test("", function () {
-
-});
 
 test("an album requires a title", function () {
     $attributes = Album::factory()->raw(['title' => '']);

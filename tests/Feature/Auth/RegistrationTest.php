@@ -1,35 +1,49 @@
 <?php
 
-namespace Tests\Feature;
-
+use App\Models\Artist;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Tests\TestCase;
+use function Pest\Laravel\assertAuthenticated;
+use function Pest\Laravel\get;
+use function Pest\Laravel\post;
+use function PHPUnit\Framework\assertInstanceOf;
 
-class RegistrationTest extends TestCase
-{
-    use RefreshDatabase;
+uses(\Illuminate\Foundation\Testing\RefreshDatabase::class);
 
-    public function test_registration_screen_can_be_rendered()
-    {
-        $response = $this->get('/register');
+test("registration screen can be rendered", function () {
+    get('/register')->assertStatus(200);
+});
 
-        $response->assertStatus(200);
-    }
+test("a user can register", function () {
+    $response = post('/register', [
+        'username' => 'sadrahkm',
+        'name' => 'Test User',
+        'email' => 'test@example.com',
+        'password' => 'password',
+        'password_confirmation' => 'password',
+    ]);
 
-    public function test_new_users_can_register()
-    {
+    assertAuthenticated();
+    assertInstanceOf(User::class, Auth::user());
+    $response->assertRedirect(RouteServiceProvider::HOME);
+});
 
-        $this->withoutExceptionHandling();
-        $response = $this->post('/register', [
-            'username' => 'sadrahkm',
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-            'password' => 'password',
-            'password_confirmation' => 'password',
-        ]);
+test("an artist can register", function () {
 
-        $this->assertAuthenticated();
-        $response->assertRedirect(RouteServiceProvider::HOME);
-    }
-}
+    $response = post('/register', [
+        'is_artist' => true,
+        'username' => 'sadrahkm',
+        'name' => 'Test User',
+        'email' => 'test@example.com',
+        'password' => 'password',
+        'password_confirmation' => 'password',
+    ]);
+
+    assertAuthenticated('artist');
+    assertInstanceOf(Artist::class, Auth::guard('artist')->user());
+    $response->assertRedirect(RouteServiceProvider::HOME);
+});
+
+
+
+

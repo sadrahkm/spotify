@@ -9830,9 +9830,10 @@ var IOSSwitch = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__.default
     },
     switchBase: {
       padding: 1,
+      color: theme.palette.light[400],
       '&$checked': {
         transform: 'translateX(16px)',
-        color: theme.palette.common.white,
+        color: "white",
         '& + $track': {
           backgroundColor: theme.palette.primary.main,
           opacity: 1,
@@ -9840,7 +9841,6 @@ var IOSSwitch = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__.default
         }
       },
       '&$focusVisible $thumb': {
-        color: theme.palette.primary.main,
         border: '6px solid #fff'
       }
     },
@@ -9850,8 +9850,8 @@ var IOSSwitch = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_2__.default
     },
     track: {
       borderRadius: 26 / 2,
-      border: "1px solid ".concat(theme.palette.grey[400]),
-      backgroundColor: theme.palette.grey[50],
+      border: "1px solid ".concat(theme.palette.light[400]),
+      backgroundColor: "#000",
       opacity: 1,
       transition: theme.transitions.create(['background-color', 'border'])
     },
@@ -9885,29 +9885,30 @@ var useStyle = (0,_material_ui_core__WEBPACK_IMPORTED_MODULE_4__.default)(functi
   };
 });
 
-var GreenSwitch = function GreenSwitch() {
+var GreenSwitch = function GreenSwitch(_ref2) {
+  var onChange = _ref2.onChange,
+      label = _ref2.label,
+      name = _ref2.name;
   var classes = useStyle();
 
-  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0__.useState({
-    checkedA: true,
-    checkedB: true
-  }),
-      _React$useState2 = _slicedToArray(_React$useState, 2),
-      state = _React$useState2[0],
-      setState = _React$useState2[1];
+  var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+      _useState2 = _slicedToArray(_useState, 2),
+      checked = _useState2[0],
+      setChecked = _useState2[1];
 
   var handleChange = function handleChange(event) {
-    setState(_objectSpread(_objectSpread({}, state), {}, _defineProperty({}, event.target.name, event.target.checked)));
+    setChecked(!checked);
+    onChange(event);
   };
 
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)("div", {
     children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_material_ui_core_FormControlLabel__WEBPACK_IMPORTED_MODULE_5__.default, {
       control: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(IOSSwitch, {
-        checked: state.checkedB,
+        checked: checked,
         onChange: handleChange,
-        name: "checkedB"
+        name: name
       }),
-      label: "Remember me",
+      label: label,
       labelPlacement: "start",
       classes: {
         root: classes.root
@@ -11939,7 +11940,8 @@ function Login(_ref) {
   var _useForm = (0,_inertiajs_inertia_react__WEBPACK_IMPORTED_MODULE_7__.useForm)({
     email: '',
     password: '',
-    remember: ''
+    remember: '',
+    is_artist: ''
   }),
       data = _useForm.data,
       setData = _useForm.setData,
@@ -11963,6 +11965,7 @@ function Login(_ref) {
     post(route('login'));
   };
 
+  console.log(data);
   return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(_Layouts_Guest__WEBPACK_IMPORTED_MODULE_2__.default, {
     title: "Log in to continue.",
     children: [status && /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
@@ -11997,7 +12000,18 @@ function Login(_ref) {
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
         className: "text-light-400 underline text-sm my-2 mb-4",
         children: "Reset Password"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Components_Button_GreenSwitch__WEBPACK_IMPORTED_MODULE_8__.default, {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Components_Button_WideButton__WEBPACK_IMPORTED_MODULE_9__.default, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+        className: "space-y-3",
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Components_Button_GreenSwitch__WEBPACK_IMPORTED_MODULE_8__.default, {
+          name: "remember",
+          onChange: onHandleChange,
+          label: "Remember me"
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Components_Button_GreenSwitch__WEBPACK_IMPORTED_MODULE_8__.default, {
+          name: "is_artist",
+          onChange: onHandleChange,
+          label: "Are you an artist ?"
+        })]
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_Components_Button_WideButton__WEBPACK_IMPORTED_MODULE_9__.default, {
         className: "mt-8 bg-white text-darkgray-800",
         children: "Log in"
       }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {

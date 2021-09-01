@@ -17,6 +17,7 @@ export default function Login({status, canResetPassword}) {
         email: '',
         password: '',
         remember: '',
+        is_artist: '',
     });
 
     useEffect(() => {
@@ -34,6 +35,8 @@ export default function Login({status, canResetPassword}) {
 
         post(route('login'));
     };
+
+    console.log(data);
 
 
     return (
@@ -70,7 +73,18 @@ export default function Login({status, canResetPassword}) {
 
                 <p className="text-light-400 underline text-sm my-2 mb-4">Reset Password</p>
 
-                <GreenSwitch/>
+                <div className="space-y-3">
+                    <GreenSwitch
+                        name="remember"
+                        onChange={onHandleChange}
+                        label="Remember me"/>
+
+                    <GreenSwitch
+                        name="is_artist"
+                        onChange={onHandleChange}
+                        label="Are you an artist ?"
+                    />
+                </div>
 
                 <WideButton
                     className="mt-8 bg-white text-darkgray-800">
