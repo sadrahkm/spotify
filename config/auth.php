@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Artist;
+
 return [
 
     /*
@@ -14,7 +16,7 @@ return [
     */
 
     'defaults' => [
-        'guard' => 'web',
+        'guard' => 'user',
         'passwords' => 'users',
     ],
 
@@ -36,9 +38,14 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'user' => [
             'driver' => 'session',
             'provider' => 'users',
+        ],
+
+        'artist' => [
+            'driver' => 'session',
+            'provider' => 'artists'
         ],
 
         'api' => [
@@ -70,6 +77,11 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+
+        'artists' => [
+            'driver' => 'eloquent',
+            'model' => Artist::class
+        ]
 
         // 'users' => [
         //     'driver' => 'database',
