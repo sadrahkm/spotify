@@ -11,4 +11,13 @@ class Artist extends Authenticatable
     use HasFactory;
 
     protected $guarded = [];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function albums()
+    {
+        return $this->hasMany(Album::class);
+    }
+
 }
