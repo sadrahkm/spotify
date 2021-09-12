@@ -2,6 +2,7 @@
 
 
 use App\Models\Album;
+use App\Models\Artist;
 use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use function Pest\Laravel\actingAs;
@@ -20,14 +21,23 @@ test("an authenticated user can see all albums", function () {
     get("/")->assertSee($album->title);
 });
 
+test("an authenticated artist can see all albums", function () {
+    actingAs(Artist::factory()->create(), 'artist');
+
+    $album = Album::factory()->create();
+
+    get("/")->assertSee($album->title);
+});
+
 test("guests cannot view all albums", function () {
     $album = Album::factory()->create();
 
     get("/")->assertDontSee($album->title)->assertRedirect('/login');
 });
 
-test("an authenticated user can creates an album", function () {
-    actingAs(User::factory()->create());
+test("an authenticated artist can creates an album", function () {
+    withoutExceptionHandling();
+    actingAs(Artist::factory()->create(), 'artist');
 
     get('/albums/create')->assertStatus(200);
 

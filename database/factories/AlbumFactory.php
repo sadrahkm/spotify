@@ -3,7 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Album;
-use App\Models\User;
+use App\Models\Artist;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class AlbumFactory extends Factory
@@ -24,7 +24,7 @@ class AlbumFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence,
-            'user_id' => User::factory(),
+            'artist_id' => Artist::factory(),
             'cover' => 'https://i.pravatar.cc/300',
             "header_picture" => "https://i.pravatar.cc/300"
         ];

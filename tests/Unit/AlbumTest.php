@@ -1,7 +1,7 @@
 <?php
 
 use App\Models\Album;
-use App\Models\User;
+use App\Models\Artist;
 use Illuminate\Database\Eloquent\Collection;
 use function PHPUnit\Framework\assertInstanceOf;
 
@@ -14,5 +14,5 @@ it("must have some music", function () {
 it("has an onwer", function () {
     $album = Album::factory()->create();
 
-    assertInstanceOf(User::class, $album->user);
+    assertInstanceOf(Artist::class, $album->artist);
 });
