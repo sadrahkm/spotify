@@ -46,4 +46,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    public function albums()
+    {
+        if ($this->is_artist)
+            return $this->hasMany(Album::class);
+        return null;
+    }
 }

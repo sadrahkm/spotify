@@ -33,9 +33,9 @@ $domain = config('app.domain');
 
 Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
 
-Route::get('/albums/create', [AlbumController::class, 'create'])->name('album.create');
+Route::get('/albums/create', [AlbumController::class, 'create'])->name('album.create')->middleware('artist');
 
-Route::post('/albums', [AlbumController::class, 'store'])->name('album.store');
+Route::post('/albums', [AlbumController::class, 'store'])->name('album.store')->middleware('artist');
 
 Route::get('/album/{album}', [AlbumController::class, 'show'])->name('album.show');
 

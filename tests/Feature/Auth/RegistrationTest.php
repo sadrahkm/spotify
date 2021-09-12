@@ -18,6 +18,7 @@ test("a user can register", function () {
     $response = post('/register', [
         'username' => 'sadrahkm',
         'name' => 'Test User',
+        'is_artist' => 1,
         'email' => 'test@example.com',
         'password' => 'password',
         'password_confirmation' => 'password',
@@ -25,22 +26,6 @@ test("a user can register", function () {
 
     assertAuthenticated();
     assertInstanceOf(User::class, Auth::user());
-    $response->assertRedirect(RouteServiceProvider::HOME);
-});
-
-test("an artist can register", function () {
-
-    $response = post('/register', [
-        'is_artist' => true,
-        'username' => 'sadrahkm',
-        'name' => 'Test User',
-        'email' => 'test@example.com',
-        'password' => 'password',
-        'password_confirmation' => 'password',
-    ]);
-
-    assertAuthenticated('artist');
-    assertInstanceOf(Artist::class, Auth::guard('artist')->user());
     $response->assertRedirect(RouteServiceProvider::HOME);
 });
 

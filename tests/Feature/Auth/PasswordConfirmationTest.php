@@ -17,20 +17,8 @@ test("confirm password screen can be rendered", function () {
 
 
 test("user password can be confirmed", function () {
-    \Pest\Laravel\withoutExceptionHandling();
     $user = User::factory()->create();
     $response = actingAs($user)->post('/confirm-password', [
-        'password' => 'password',
-    ]);
-
-    $response->assertRedirect();
-    $response->assertSessionHasNoErrors();
-});
-
-test("artist password can be confirmed", function () {
-    \Pest\Laravel\withoutExceptionHandling();
-    $user = Artist::factory()->create();
-    $response = actingAs($user, 'artist')->post('/confirm-password', [
         'password' => 'password',
     ]);
 
