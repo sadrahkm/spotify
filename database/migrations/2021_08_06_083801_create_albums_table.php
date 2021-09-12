@@ -18,7 +18,7 @@ class CreateAlbumsTable extends Migration
             $table->string("title");
             $table->string('cover');
             $table->string('header_picture');
-            $table->foreignId('artist_id');
+            $table->foreignId('user_id');
             $table->timestamps();
         });
     }

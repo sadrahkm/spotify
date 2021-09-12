@@ -25,19 +25,6 @@ test("a user can authenticate using the login screen", function () {
     $response->assertRedirect(RouteServiceProvider::HOME);
 });
 
-test("an artist can authenticate using the login screen", function () {
-    $artist = Artist::factory()->create();
-
-    $response = $this->post('/login', [
-        'is_artist' => true,
-        'email' => $artist->email,
-        'password' => 'password',
-    ]);
-
-    $this->assertAuthenticated('artist');
-    $response->assertRedirect(RouteServiceProvider::HOME);
-});
-
 test("a user can not authenticate with invalid password", function () {
     $user = User::factory()->create();
 
