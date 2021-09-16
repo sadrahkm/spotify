@@ -1,4 +1,4 @@
-import React from 'react';
+import {useState} from 'react';
 import Button from '@material-ui/core/Button';
 import {withStyles} from '@material-ui/core/styles';
 import {purple} from '@material-ui/core/colors';
@@ -15,9 +15,10 @@ const IOSSwitch = withStyles((theme) => ({
     },
     switchBase: {
         padding: 1,
+        color: theme.palette.light[400],
         '&$checked': {
             transform: 'translateX(16px)',
-            color: theme.palette.common.white,
+            color: "white",
             '& + $track': {
                 backgroundColor: theme.palette.primary.main,
                 opacity: 1,
@@ -25,7 +26,6 @@ const IOSSwitch = withStyles((theme) => ({
             },
         },
         '&$focusVisible $thumb': {
-            color: theme.palette.primary.main,
             border: '6px solid #fff',
         },
     },
@@ -35,8 +35,8 @@ const IOSSwitch = withStyles((theme) => ({
     },
     track: {
         borderRadius: 26 / 2,
-        border: `1px solid ${theme.palette.grey[400]}`,
-        backgroundColor: theme.palette.grey[50],
+        border: `1px solid ${theme.palette.light[400]}`,
+        backgroundColor: "#000",
         opacity: 1,
         transition: theme.transitions.create(['background-color', 'border']),
     },
@@ -68,24 +68,23 @@ const useStyle = makeStyles((theme) => ({
     }
 }));
 
-const GreenSwitch = () => {
+const GreenSwitch = ({onChange, label, name}) => {
     const classes = useStyle();
-    const [state, setState] = React.useState({
-        checkedA: true,
-        checkedB: true,
-    });
+    const [checked, setChecked] = useState(false);
 
     const handleChange = (event) => {
-        setState({...state, [event.target.name]: event.target.checked});
+        setChecked(!checked);
+        onChange(event);
     };
     return (
         <div>
             <FormControlLabel
                 control={<IOSSwitch
-                    checked={state.checkedB}
+                    checked={checked}
                     onChange={handleChange}
-                    name="checkedB"/>}
-                label="Remember me"
+                    name={name}
+                />}
+                label={label}
                 labelPlacement="start"
                 classes={{
                     root: classes.root

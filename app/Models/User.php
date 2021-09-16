@@ -46,11 +46,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
     public function albums()
     {
-        return $this->hasMany(Album::class);
+        if ($this->is_artist)
+            return $this->hasMany(Album::class);
+        return null;
     }
 }

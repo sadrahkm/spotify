@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AlbumController;
+use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PlaylistController;
 use App\Http\Controllers\UsersController;
@@ -19,6 +20,8 @@ use Inertia\Inertia;
 |
 */
 
+$domain = config('app.domain');
+
 //Route::get('/', function () {
 //    return Inertia::render('Welcome', [
 //        'canLogin' => Route::has('login'),
@@ -30,9 +33,9 @@ use Inertia\Inertia;
 
 Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
 
-Route::get('/albums/create', [AlbumController::class, 'create'])->name('album.create');
+Route::get('/albums/create', [AlbumController::class, 'create'])->name('album.create')->middleware('artist');
 
-Route::post('/albums', [AlbumController::class, 'store'])->name('album.store');
+Route::post('/albums', [AlbumController::class, 'store'])->name('album.store')->middleware('artist');
 
 Route::get('/album/{album}', [AlbumController::class, 'show'])->name('album.show');
 
