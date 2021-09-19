@@ -14,11 +14,11 @@ test("registration screen can be rendered", function () {
     get('/register')->assertStatus(200);
 });
 
-test("a user can register", function () {
+test("a user can register", function ($role) {
     $response = post('/register', [
         'username' => 'sadrahkm',
         'name' => 'Test User',
-        'is_artist' => 1,
+        'is_artist' => $role == 'artist',
         'email' => 'test@example.com',
         'password' => 'password',
         'password_confirmation' => 'password',
@@ -27,7 +27,7 @@ test("a user can register", function () {
     assertAuthenticated();
     assertInstanceOf(User::class, Auth::user());
     $response->assertRedirect(RouteServiceProvider::HOME);
-});
+})->with('user_types');
 
 
 

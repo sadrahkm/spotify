@@ -19,9 +19,9 @@ class AlbumResource extends JsonResource
             'cover' => $this->cover,
             'header_picture' => $this->header_picture,
             'user' => [
-                'username' => $this->user->username,
-                'name' => $this->user->name,
-                'profile_picture' => $this->user->profile_picture
+                'username' => $this->artist->username,
+                'name' => $this->artist->name,
+                'profile_picture' => $this->artist->profile_picture
             ],
             'musics' => $this->musics->map->only([
                 'title',

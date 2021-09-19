@@ -12,7 +12,7 @@ class HomeController extends Controller
     public function index()
     {
         return Inertia::render('Index', [
-            'albums' => new AlbumCollection(Album::with('user')->take(5)->get())
+            'albums' => new AlbumCollection(Album::with('artist')->take(5)->get())
         ]);
     }
 }

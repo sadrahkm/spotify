@@ -25,7 +25,7 @@ class AlbumFactory extends Factory
     {
         return [
             'title' => $this->faker->sentence,
-            'user_id' => User::factory()->create(['is_artist' => 1]),
+            'user_id' => User::factory()->create(),
             'cover' => 'https://i.pravatar.cc/300',
             "header_picture" => "https://i.pravatar.cc/300"
         ];

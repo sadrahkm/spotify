@@ -49,12 +49,7 @@ class AuthenticatedSessionController extends Controller
      */
     public function destroy(Request $request)
     {
-        if (auth()->user() instanceof User) {
-            Auth::guard('user')->logout();
-        } else {
-            Auth::guard('user')->logout();
-        }
-
+        Auth::logout();
         $request->session()->invalidate();
 
         $request->session()->regenerateToken();

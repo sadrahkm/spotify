@@ -22,10 +22,12 @@ test("an authenticated user can see all albums", function () {
     get("/")->assertSee($album->title);
 });
 
-test("guests cannot view all albums", function () {
+test("guests cannot view album pages", function () {
     $album = Album::factory()->create();
 
     get("/")->assertDontSee($album->title)->assertRedirect('/login');
+
+    get("/album/{$album->id}")->assertDontSee($album->title)->assertRedirect('/login');
 });
 
 test("an authenticated artist can creates an album", function () {

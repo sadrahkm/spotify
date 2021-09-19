@@ -14,7 +14,7 @@ class MusicSeeder extends Seeder
      */
     public function run()
     {
-        Music::factory(5)->create(['album_id' => 20]);
+        Music::factory(5)->create(['album_id' => 2]);
 //        Music::factory(10)->create();
     }
 }

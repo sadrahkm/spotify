@@ -30,27 +30,28 @@ $domain = config('app.domain');
 //        'phpVersion' => PHP_VERSION,
 //    ]);
 //});
+Route::middleware('auth')->group(function(){
+    Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('auth');
+    Route::get('/album/{album}', [AlbumController::class, 'show'])->name('album.show');
 
-Route::get('/albums/create', [AlbumController::class, 'create'])->name('album.create')->middleware('artist');
+    Route::get('/user/{username}', [UsersController::class, 'show'])->name('user.show');
 
-Route::post('/albums', [AlbumController::class, 'store'])->name('album.store')->middleware('artist');
+    Route::get('/artist/{artist}', [UsersController::class, 'artist'])->name('artist.show');
 
-Route::get('/album/{album}', [AlbumController::class, 'show'])->name('album.show');
-
-Route::get('/user/{username}', [UsersController::class, 'show'])->name('user.show');
-
-Route::get('/artist/{artist}', [UsersController::class, 'artist'])->name('artist.show');
-
+    Route::middleware('artist')->group(function () {
+        Route::get('/albums/create', [AlbumController::class, 'create'])->name('album.create');
+        Route::post('/albums', [AlbumController::class, 'store'])->name('album.store');
+    });
 //Route::get('/playlist/{playlist}', [PlaylistController::class, 'show'])->name('playlist.show');
 
 //Route::get('player', function () {
 //    return Inertia::render("AudioPlayer");
 //});
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->middleware(['verified'])->name('dashboard');
+});
 
 require __DIR__ . '/auth.php';

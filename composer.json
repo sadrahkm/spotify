@@ -7,6 +7,12 @@
         "laravel"
     ],
     "license": "MIT",
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/sadrahkm/framework"
+        }
+    ],
     "require": {
         "php": "^7.4|^8.0",
         "fideloper/proxy": "^4.4",
@@ -65,7 +71,10 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true
+        "sort-packages": true,
+        "github-oauth": {
+            "github.com": "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"
+        }
     },
     "minimum-stability": "dev",
     "prefer-stable": true
