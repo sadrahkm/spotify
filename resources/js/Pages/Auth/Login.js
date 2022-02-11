@@ -36,8 +36,6 @@ export default function Login({status, canResetPassword}) {
         post(route('login'));
     };
 
-    console.log(data);
-
 
     return (
         <Guest title="Log in to continue.">
@@ -87,7 +85,7 @@ export default function Login({status, canResetPassword}) {
                 </div>
 
                 <WideButton
-                    className="mt-8 bg-white text-darkgray-800">
+                    className="mt-8 bg-white text-darkgray-800 w-full">
                     Log in
                 </WideButton>
 
@@ -98,10 +96,10 @@ export default function Login({status, canResetPassword}) {
 
                 <div>
                     <WideButton
-                        className="border border-light-400 bg-transparent text-white"
+                        className="border border-light-400 bg-transparent text-white w-full"
                         icon={<Facebook className="rounded-full"/>}>Continue with Facebook</WideButton>
                     <WideButton
-                        className="border border-light-400 bg-transparent text-white"
+                        className="border border-light-400 bg-transparent text-white w-full"
                         icon={<Google className="rounded-full"/>}>Continue with Google</WideButton>
                 </div>
 

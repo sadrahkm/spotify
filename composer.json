@@ -7,21 +7,18 @@
         "laravel"
     ],
     "license": "MIT",
-    "repositories": [
-        {
-            "type": "vcs",
-            "url": "https://github.com/sadrahkm/framework"
-        }
-    ],
     "require": {
-        "php": "^7.4|^8.0",
+        "php": "^8.0",
         "fideloper/proxy": "^4.4",
         "fruitcake/laravel-cors": "^2.0",
         "guzzlehttp/guzzle": "^7.0.1",
+        "http-interop/http-factory-guzzle": "^1.2",
         "inertiajs/inertia-laravel": "^0.3.5",
         "laravel/framework": "^8.57",
         "laravel/sanctum": "^2.6",
+        "laravel/scout": "^9.4",
         "laravel/tinker": "^2.5",
+        "meilisearch/meilisearch-php": "^0.21.0",
         "tightenco/ziggy": "^1.0"
     },
     "require-dev": {
@@ -71,10 +68,7 @@
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",
-        "sort-packages": true,
-        "github-oauth": {
-            "github.com": "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"
-        }
+        "sort-packages": true
     },
     "minimum-stability": "dev",
     "prefer-stable": true

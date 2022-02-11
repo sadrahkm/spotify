@@ -22,10 +22,12 @@ const Layout = ({children}) => {
                                                         <p className="ml-3.5">Home</p>
                                                     </div>
                                                 </Link>
-                                                <div className="text-light-400 bg-opacity-1 flex hover:text-white items-center px-4 py-1 rounded-sm text-white">
-                                                    <i className="fas fa-search"></i>
-                                                    <p className="ml-3.5">Search</p>
-                                                </div>
+                                                <Link href={route('search.show')}>
+                                                    <div className="text-light-400 bg-opacity-1 flex hover:text-white items-center px-4 py-1 rounded-sm text-white">
+                                                        <i className="fas fa-search"></i>
+                                                        <p className="ml-3.5">Search</p>
+                                                    </div>
+                                                </Link>
                                                 <div className="text-light-400 bg-opacity-10 flex hover:text-white items-center px-4 py-1 rounded-sm text-white">
                                                     <i className="fas fa-bookmark"></i>
                                                     <p className="ml-3.5">Your Library</p>

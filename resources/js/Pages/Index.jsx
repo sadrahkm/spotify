@@ -7,7 +7,6 @@ import AlbumBar from "@/Components/Bar/AlbumBar";
 
 const Index = () => {
     const {albums} = usePage().props;
-    const {data} = albums;
     return (
         <div className="h-0">
             <div className="px-8 pt-8 ">
@@ -26,17 +25,17 @@ const Index = () => {
                 <div className="mt-10">
                     <AlbumBar
                         heading="Your Top Shows"
-                        data={data}/>
+                        data={albums}/>
                 </div>
                 <div className="mt-10">
                     <AlbumBar
                         heading="Your Top Shows"
-                        data={data}/>
+                        data={albums}/>
                 </div>
                 <div className="mt-10">
                     <AlbumBar
                         heading="Your Top Shows"
-                        data={data}/>
+                        data={albums}/>
                 </div>
             </div>
         </div>
