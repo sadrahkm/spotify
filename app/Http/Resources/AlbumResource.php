@@ -6,6 +6,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 
 class AlbumResource extends JsonResource
 {
+    public static $wrap = "data";
     /**
      * Transform the resource into an array.
      *

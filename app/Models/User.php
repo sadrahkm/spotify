@@ -48,8 +48,6 @@ class User extends Authenticatable
 
     public function albums()
     {
-        if ($this->is_artist)
-            return $this->hasMany(Album::class);
-        return null;
+        return $this->hasMany(Album::class);
     }
 }

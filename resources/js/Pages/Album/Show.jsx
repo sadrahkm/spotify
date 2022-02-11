@@ -11,7 +11,6 @@ const Show = () => {
     const {album: {data: album},} = usePage().props;
     const user = album.user;
     const musics = album.musics;
-
     return (
         <div className="h-0">
             <div className="px-8 pt-16 pb-6 bg-gradient-to-b from-darkgray-300 to-darkgray-500">
