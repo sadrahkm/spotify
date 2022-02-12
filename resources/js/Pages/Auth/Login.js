@@ -1,8 +1,4 @@
-import Button from '@/Components/Button';
-import Checkbox from '@/Components/Checkbox';
-import Guest from '@/Layouts/Guest';
 import Input from '@/Components/Input/Input';
-import Label from '@/Components/Input/Label';
 import React, {useEffect} from 'react';
 import ValidationErrors from '@/Components/ValidationErrors';
 import {InertiaLink} from '@inertiajs/inertia-react';
