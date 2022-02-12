@@ -10,10 +10,10 @@ const Layout = ({children}) => {
             <div className="flex flex-col h-screen">
                 <div className="flex-grow">
                     <div className="flex h-full">
-                        <div className="bg-black flex-grow-0 h-full pt-6">
+                        <div className="bg-darkgray-900 flex-grow-0 h-full pt-6">
                             <div className="w-72">
                                 <div className="px-4">
-                                    <div className="pb-6 border-b border-white border-opacity-20">
+                                    <div>
                                         <div className="flex flex-col">
                                             <nav className="space-y-1 text-lg text-white">
                                                 <Link href={route('home')}>
@@ -35,13 +35,7 @@ const Layout = ({children}) => {
                                             </nav>
                                         </div>
                                         <div className="mt-10 text-white space-y-3 px-4">
-                                            <div className="flex items-center opacity-70">
-                                                <div className="bg-white ml-0.5 px-2 py-0.5 rounded-sm">
-                                                    <i className="fa-plus fas text-sm text-black"></i>
-                                                </div>
-                                                <p className="ml-3.5">Create Playlist</p>
-                                            </div>
-                                            <div className="flex items-center opacity-70">
+                                            <div className="border-b border-darkgray-300 border-opacity-60 flex items-center opacity-70 pb-5">
                                                 <div className="bg-gradient-to-br from-purple-light px-2 py-1 rounded-sm to-white">
                                                     <i className="fas fa-heart text-sm text-white"></i>
                                                 </div>
@@ -50,27 +44,43 @@ const Layout = ({children}) => {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="text-white text-opacity-70 pl-8 max-h-56 overflow-y-scroll">
-                                    <ul className="py-3 space-y-1.5">
-                                        <li>Music</li>
-                                        <li>Dance</li>
-                                        <li>Dance</li>
-                                        <li>Dance</li>
-                                        <li>Dance</li>
-                                        <li>Dance</li>
-                                        <li>Dance</li>
-                                        <li>Dance</li>
-                                        <li>Party</li>
-                                        <li>Party</li>
-                                        <li>Party</li>
-                                        <li>Party</li>
-                                        <li>Party</li>
-                                        <li>Discover Weekly</li>
-                                    </ul>
+                                <div className="text-white text-opacity-70 pl-8">
+                                    <div>
+                                        <div className="mt-4 flex items-center justify-between opacity-25">
+                                            <input
+                                                type="text"
+                                                style={{boxShadow: '0 0 0'}}
+                                                className="bg-transparent border-0 p-0"
+                                                placeholder="Create Playlist"/>
+                                            <div className="ml-0.5 px-2 py-0.5 rounded-sm">
+                                                <button className="h-8 w-8">
+                                                    <i className="fa-plus fas text-sm"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div className="max-h-56 overflow-y-scroll">
+                                        <ul className="py-3 space-y-1.5">
+                                            <li>Music</li>
+                                            <li>Dance</li>
+                                            <li>Dance</li>
+                                            <li>Dance</li>
+                                            <li>Dance</li>
+                                            <li>Dance</li>
+                                            <li>Dance</li>
+                                            <li>Dance</li>
+                                            <li>Party</li>
+                                            <li>Party</li>
+                                            <li>Party</li>
+                                            <li>Party</li>
+                                            <li>Party</li>
+                                            <li>Discover Weekly</li>
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div className="bg-darkgray-800 relative flex-grow h-full overflow-y-scroll">
+                        <div className="bg-darkgray-950 relative flex-grow h-full overflow-y-scroll">
                             <TopHeader/>
                             {children}
                         </div>
